@@ -1,0 +1,77 @@
+@import './checkbox';
+@import './loader';
+
+body {
+    // font-family: 'Roboto', sans-serif;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    hyphens: auto;
+    user-select: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+.error-box {
+    h1 {
+        color: #bebebe;
+    }
+    &__status-code {
+        color: #555555;
+    }
+}
+.task-item {
+    box-shadow: 0 0 13px 0px #00000018;
+    border-radius: 15px;
+
+    & .task-controls {
+        & label {
+            margin: 0;
+        }
+        & .delete-task-btn {
+            color: #d7dae7;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            &:hover {
+                color: #b1b4be;
+            }
+        }
+    }
+}
+.task-form {
+    box-shadow: 0 0 13px 0px #00000018;
+    border-radius: 15px;
+    & .task-form-input {
+        border-radius: inherit;
+        height: 50px;
+        font-size: 20px;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    & .create-task-btn {
+        color: #989ba3;
+        & i {
+            cursor: pointer;
+            border-radius: 50%;
+            padding: 2px;
+            &:hover {
+                color: #606268;
+            }
+        }
+    }
+}
+.sort-order-icon {
+    cursor: pointer;
+    color: #878a94;
+
+    &:hover {
+        color: #535558;
+    }
+}
+.text-strikethrough {
+    text-decoration: line-through;
+}
