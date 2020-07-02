@@ -10,7 +10,9 @@ class Task extends Component {
         let classNames = {
             li: 'task-item px-3 pt-2 mb-3',
             container: 'd-flex justify-content-between',
-            text: task.completed ? 'text-muted text-strikethrough mt-1 ' : 'mt-1 ',
+            text: task.completed
+                ? 'task-text text-muted text-strikethrough mt-1 '
+                : 'task-text mt-1 ',
             controls: 'task-controls d-flex align-items-center ml-4',
             delete: 'material-icons ml-2 delete-task-btn',
         };
@@ -19,7 +21,7 @@ class Task extends Component {
             <li className={classNames.li}>
                 <div className={classNames.container}>
                     <div>
-                        <small className="text-muted">{relativeDate}</small>
+                        <small className="text-muted task-date">{relativeDate}</small>
                         <p className={classNames.text}>{task.text}</p>
                     </div>
 
