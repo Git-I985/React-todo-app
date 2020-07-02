@@ -5,7 +5,7 @@ import moment from 'moment';
 class Task extends Component {
     render() {
         let relativeDate = moment(this.props.task.date, 'D MMM, HH:mm', true).fromNow();
-        let { task, handleDeleteTask, handleCompleteTask } = this.props;
+        let { task, handleDelete, handleComplete } = this.props;
 
         let classNames = {
             li: 'task-item px-3 pt-2 mb-3',
@@ -18,15 +18,21 @@ class Task extends Component {
         return (
             <li className={classNames.li}>
                 <div className={classNames.container}>
-                    {/* Date and text */}
                     <div>
                         <small className="text-muted">{relativeDate}</small>
                         <p className={classNames.text}>{task.text}</p>
                     </div>
-                    {/* Controlls */}
+
                     <div className={classNames.controls}>
-                        <CompleteCheckbox handleCompleteTask={handleCompleteTask} task={task} />
-                        <i className={classNames.delete} onClick={() => handleDeleteTask(task.id)}>
+                        <CompleteCheckbox
+                            handleComplete={() => {
+                                let updated = task;
+                                updated.completed = !updated.completed;
+                                handleComplete(updated.id, updated);
+                            }}
+                            completed={task.completed}
+                        />
+                        <i className={classNames.delete} onClick={() => handleDelete(task.id)}>
                             close
                         </i>
                     </div>

@@ -3,7 +3,7 @@ import Task from './Task/Task';
 
 class TaskList extends React.Component {
     render() {
-        let { reverse, tasks, handleDeleteTask, handleCompleteTask } = this.props;
+        let { reverse, tasks, handleDelete, handleComplete } = this.props;
         let sortedTasks = reverse ? tasks.reverse() : tasks; //sort order
 
         return (
@@ -12,8 +12,8 @@ class TaskList extends React.Component {
                     <Task
                         key={task.id}
                         task={task}
-                        handleCompleteTask={handleCompleteTask}
-                        handleDeleteTask={handleDeleteTask}
+                        handleComplete={handleComplete}
+                        handleDelete={handleDelete}
                     />
                 ))}
             </ul>

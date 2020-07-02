@@ -1,9 +1,10 @@
 import React from 'react';
+import moment from 'moment';
 
-class CreateTaskForm extends React.Component {
+class CreateTask extends React.Component {
     constructor(props) {
         super(props);
-        this.textInput = React.createRef();
+        this.input = React.createRef();
     }
 
     render() {
@@ -21,11 +22,11 @@ class CreateTaskForm extends React.Component {
                         className={classNames.input}
                         type="text"
                         placeholder="Add new task here..."
-                        onKeyDown={this.handleKeyDown}
-                        ref={this.textInput}
+                        onKeyDown={this.handlePressEnter}
+                        ref={this.input}
                     />
                     <div className={classNames.button}>
-                        <i className={classNames.icon} onClick={this.handleSubmit}>
+                        <i className={classNames.icon} onClick={this.handleClickButton}>
                             add
                         </i>
                     </div>
@@ -35,24 +36,29 @@ class CreateTaskForm extends React.Component {
         );
     }
 
-    /* Submit on press Enter and press button */
-    handleKeyDown = (e) => {
-        let text = e.target.value;
-        let { handleCreateTask } = this.props;
+    handleCreateTask = (text) => {
+        this.props.handleCreate({
+            date: moment().format('D MMM, HH:mm'),
+            text: text,
+            completed: false,
+        });
+    };
 
+    handlePressEnter = (e) => {
+        let text = e.target.value;
         if (e.key === 'Enter' && text) {
-            handleCreateTask(text);
+            this.handleCreateTask(text);
             e.target.value = '';
         }
     };
 
-    handleSubmit = () => {
-        let text = this.textInput.current.value;
+    handleClickButton = () => {
+        let text = this.input.current.value;
         if (text) {
-            this.props.handleCreateTask(text); //Create new task
+            this.handleCreateTask(text); //Create new task
             this.textInput.current.value = ''; //Clear input
         }
     };
 }
 
-export default CreateTaskForm;
+export default CreateTask;
