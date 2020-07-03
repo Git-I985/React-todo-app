@@ -7,16 +7,10 @@
       "id": 2
     },
     {
-      "date": "2 Jul, 17:02",
-      "text": "new 3",
+      "date": "2 Jul, 22:07",
+      "text": "new task",
       "completed": false,
       "id": 3
-    },
-    {
-      "date": "2 Jul, 17:02",
-      "text": "new 4",
-      "completed": false,
-      "id": 4
     }
   ]
 }

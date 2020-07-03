@@ -1,56 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function withCRUD(Component, url) {
-    return class extends Component {
-        state = {
-            data: [],
-        };
+function withAPI(Component, url) {
+    return (props) => {
+        const [data, setData] = useState([]);
 
-        componentDidMount = () => this.get();
+        useEffect(() => {
+            get();
+        }, []);
 
-        get = () => {
+        const get = () =>
             axios
                 .get(url)
-                .then((response) => response.data)
-                .then((data) => this.setState({ data }))
+                .then((response) => setData(response.data))
                 .catch();
-        };
 
-        create = (data) => {
+        const create = (data) =>
             axios
                 .post(url, data)
-                .then((response) => this.get())
+                .then((response) => get())
                 .catch();
-        };
 
-        remove = (id) => {
+        const remove = (id) =>
             axios
                 .delete(`${url}/${id}`)
-                .then((response) => this.get())
+                .then((response) => get())
                 .catch();
-        };
 
-        update = (id, data) => {
+        const update = (id, data) =>
             axios
                 .put(`${url}/${id}`, data)
-                .then((response) => this.get())
+                .then((response) => get())
                 .catch();
-        };
 
-        render() {
-            return (
-                <Component
-                    data={this.state.data}
-                    get={this.get}
-                    create={this.create}
-                    remove={this.remove}
-                    update={this.update}
-                    {...this.props}
-                />
-            );
-        }
+        return (
+            <Component
+                data={data}
+                get={get}
+                create={create}
+                remove={remove}
+                update={update}
+                {...props}
+            />
+        );
     };
 }
 
-export default withCRUD;
+export default withAPI;
