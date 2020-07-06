@@ -10,6 +10,7 @@ Install
 
 Usage
 ---
+`cd src` and `gulp sass` for compile sass files
 
 `npm start` - start app
 
