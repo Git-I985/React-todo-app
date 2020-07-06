@@ -1,16 +1,22 @@
 {
   "tasks": [
     {
-      "date": "2 Jul, 16:55",
-      "text": "new 2",
-      "completed": true,
-      "id": 2
-    },
-    {
       "date": "2 Jul, 22:07",
       "text": "new task",
-      "completed": false,
+      "completed": true,
       "id": 3
+    },
+    {
+      "date": "6 Jul, 17:53",
+      "text": "new task",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "date": "6 Jul, 17:53",
+      "text": "new task 2",
+      "completed": false,
+      "id": 5
     }
   ]
 }
