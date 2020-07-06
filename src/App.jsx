@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-// import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import TasksList from './components/TasksList.jsx';
 import CreateTask from './components/CreateTask.jsx';
 import OrderToggle from './components/service/OrderToggle.jsx';
 import withAPI from './hoc/withAPI';
 
 const App = (props) => {
-    let [sortOrder, setSortOrder] = useState(true),
+    const [sortOrder, setSortOrder] = useState(true),
         [theme, setTheme] = useState('dark'),
         { data = [], create, remove, update } = props;
 

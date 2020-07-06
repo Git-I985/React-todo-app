@@ -23,10 +23,10 @@ body {
         color: #555555;
     }
 }
+
 .task-item {
     box-shadow: 0 0 13px 0px #00000018;
     border-radius: 15px;
-
     & .task-controls {
         & label {
             margin: 0;
@@ -41,6 +41,7 @@ body {
         }
     }
 }
+
 .task-form {
     box-shadow: 0 0 13px 0px #00000018;
     border-radius: 15px;

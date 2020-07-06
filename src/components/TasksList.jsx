@@ -2,7 +2,7 @@ import React from 'react';
 import Task from './Task/Task';
 
 const TasksList = (props) => {
-    let { sortOrder, tasks, handleDelete, handleComplete } = props,
+    const { sortOrder, tasks, handleDelete, handleComplete } = props,
         sortedTasks = sortOrder ? tasks.reverse() : tasks; //sort order
 
     return (
