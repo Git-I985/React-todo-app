@@ -15,7 +15,7 @@
     {
       "date": "6 Jul, 17:53",
       "text": "new task 2",
-      "completed": false,
+      "completed": true,
       "id": 5
     }
   ]
