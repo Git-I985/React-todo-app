@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // Components
 import TasksList from './components/TasksList';
-import CreateTask from './components/CreateTask';
+import CreateForm from './components/CreateForm';
 import Toolbar from './components/Toolbar/Toolbar';
 // HOC
 import withAPI from './hoc/withAPI';
@@ -12,7 +12,7 @@ const App = (props) => {
 
     return (
         <div className="container pt-5">
-            <CreateTask handleCreate={create} />
+            <CreateForm handleCreate={create} />
             <Toolbar
                 orderToggle={{
                     order,

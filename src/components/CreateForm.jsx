@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 // TODO: move to fcomponent
-class CreateTask extends React.Component {
+class CreateForm extends React.Component {
     constructor(props) {
         super(props);
         this.input = React.createRef(); //TODO: remove this shit
@@ -62,4 +62,4 @@ class CreateTask extends React.Component {
     };
 }
 
-export default CreateTask;
+export default CreateForm;
