@@ -1,10 +1,11 @@
 import React from 'react';
 import moment from 'moment';
 
+// TODO: move to fcomponent
 class CreateTask extends React.Component {
     constructor(props) {
         super(props);
-        this.input = React.createRef();
+        this.input = React.createRef(); //TODO: remove this shit
     }
 
     render() {

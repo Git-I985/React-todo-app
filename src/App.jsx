@@ -1,24 +1,26 @@
 import React, { useState } from 'react';
-import TasksList from './components/TasksList.jsx';
-import CreateTask from './components/CreateTask.jsx';
-import Toolbar from './components/Toolbar';
+// Components
+import TasksList from './components/TasksList';
+import CreateTask from './components/CreateTask';
+import Toolbar from './components/Toolbar/Toolbar';
+// HOC
 import withAPI from './hoc/withAPI';
 
 const App = (props) => {
-    const [order, setOrder] = useState(true),
-        { data = [], create, remove, update } = props;
+    const [order, setOrder] = useState(true);
+    const { data: tasks = [], create, remove, update } = props;
 
     return (
         <div className="container pt-5">
             <CreateTask handleCreate={create} />
             <Toolbar
                 orderToggle={{
-                    changeOrder: () => setOrder(!order),
                     order,
+                    changeOrder: () => setOrder(!order),
                 }}
             />
             <TasksList
-                tasks={[...data]}
+                tasks={[...tasks]}
                 handleDelete={remove}
                 handleComplete={update}
                 order={order}

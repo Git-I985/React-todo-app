@@ -1,9 +1,9 @@
 import React from 'react';
-import Task from './Task';
+import Task from './Task/Task';
 
 const TasksList = (props) => {
-    const { order, tasks, handleDelete, handleComplete } = props,
-        sortedTasks = order ? tasks.reverse() : tasks;
+    const { order, tasks, handleDelete, handleComplete } = props;
+    const sortedTasks = order ? tasks.reverse() : tasks;
 
     return (
         <ul className="list-unstyled">

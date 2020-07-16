@@ -1,7 +1,8 @@
 import React from 'react';
 
 const CompleteCheckbox = (props) => {
-    let { completed, handleComplete } = props;
+    const { completed, handleComplete } = props;
+
     return (
         <React.Fragment>
             <label className="checkbox bounce">
