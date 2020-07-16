@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import moment from 'moment';
 
 // TODO: move to fcomponent
@@ -17,7 +17,7 @@ class CreateForm extends React.Component {
         };
 
         return (
-            <React.Fragment>
+            <Fragment>
                 <div className={classNames.container}>
                     <input
                         className={classNames.input}
@@ -33,7 +33,7 @@ class CreateForm extends React.Component {
                     </div>
                 </div>
                 <hr className="my-4 w-50" />
-            </React.Fragment>
+            </Fragment>
         );
     }
 

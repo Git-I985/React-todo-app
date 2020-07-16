@@ -10,10 +10,8 @@
         "bootstrap": "^4.5.0",
         "moment": "^2.26.0",
         "react": "^16.13.1",
-        "react-bootstrap": "^1.0.1",
         "react-dom": "^16.13.1",
-        "react-scripts": "3.4.1",
-        "styled-components": "^5.1.1"
+        "react-scripts": "3.4.1"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -41,6 +39,7 @@
         "gulp": "^4.0.2",
         "gulp-csso": "^4.0.1",
         "gulp-sass": "^4.1.0",
-        "gulp-sourcemaps": "^2.6.5"
+        "gulp-sourcemaps": "^2.6.5",
+        "json-server": "^0.16.1"
     }
 }
