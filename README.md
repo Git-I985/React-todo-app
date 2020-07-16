@@ -14,4 +14,4 @@ Usage
 
 `npm start` - start app
 
-`npm run server` - start json server
+`npm run server` - start json server (install globally json-server npm package before that)
