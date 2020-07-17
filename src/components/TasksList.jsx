@@ -4,13 +4,11 @@ import Task from './Task/Task';
 const TasksList = (props) => {
     const { order, tasks, handleDelete, handleComplete, filter } = props;
 
-    const filters = [(task) => true, (task) => task.completed, (task) => !task.completed];
-
-    const filtredTasks = tasks.filter(filters[filter]);
+    const filtredTasks = tasks.filter(filter);
     const sortedTasks = order ? filtredTasks.reverse() : filtredTasks;
 
     return (
-        <ul className="list-unstyled">
+        <ul className="list-unstyled tasks-list">
             {sortedTasks.map((task) => (
                 <Task
                     key={task.id}

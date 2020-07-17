@@ -12,6 +12,8 @@ const App = (props) => {
     const [order, setOrder] = useState(true);
     const [filter, setFilter] = useState(0);
 
+    const filters = [(task) => true, (task) => task.completed, (task) => !task.completed];
+
     return (
         <div className="container pt-5">
             <CreateForm handleCreate={create} />
@@ -22,7 +24,7 @@ const App = (props) => {
                 }}
                 filter={{
                     filter,
-                    changeFilter: () => setFilter(filter < 2 ? filter + 1 : 0),
+                    changeFilter: () => setFilter(filter < filters.length - 1 ? filter + 1 : 0),
                 }}
             />
             <TasksList
@@ -30,7 +32,7 @@ const App = (props) => {
                 handleDelete={remove}
                 handleComplete={update}
                 order={order}
-                filter={filter}
+                filter={filters[filter]}
             />
         </div>
     );
