@@ -1,52 +1,22 @@
 {
   "tasks": [
     {
-      "date": "2 Jul, 22:07",
-      "text": "new task",
+      "date": "17 Jul, 21:12",
+      "text": "new 1",
       "completed": true,
+      "id": 1
+    },
+    {
+      "date": "17 Jul, 21:20",
+      "text": "new 2",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "date": "17 Jul, 21:52",
+      "text": "new 3",
+      "completed": false,
       "id": 3
-    },
-    {
-      "date": "6 Jul, 17:53",
-      "text": "new task",
-      "completed": false,
-      "id": 4
-    },
-    {
-      "date": "6 Jul, 17:53",
-      "text": "new task 2",
-      "completed": true,
-      "id": 5
-    },
-    {
-      "date": "16 Jul, 21:40",
-      "text": "new taask",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "date": "16 Jul, 21:48",
-      "text": "new task 3",
-      "completed": false,
-      "id": 7
-    },
-    {
-      "date": "17 Jul, 09:26",
-      "text": "туц",
-      "completed": false,
-      "id": 8
-    },
-    {
-      "date": "17 Jul, 09:26",
-      "text": "туц туц",
-      "completed": false,
-      "id": 9
-    },
-    {
-      "date": "17 Jul, 09:26",
-      "text": "туц туц туц",
-      "completed": true,
-      "id": 10
     }
   ]
 }
