@@ -14,17 +14,13 @@ class CreateForm extends React.Component {
 
     submitHandler = (event) => {
         event.preventDefault()
-        this.createTask()
-    }
-
-    createTask = (text) => {
         this.setState({ inputNewTask: "" })
         this.props.handleCreate({
             date: moment().format('D MMM, HH:mm'),
             text: this.state.inputNewTask,
             completed: false,
-        });
-    };
+        })
+    }
 
     render() {
         const classNames = {
