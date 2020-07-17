@@ -31,10 +31,22 @@
       "id": 7
     },
     {
-      "date": "16 Jul, 22:09",
-      "text": "new 33",
+      "date": "17 Jul, 09:26",
+      "text": "туц",
       "completed": false,
       "id": 8
+    },
+    {
+      "date": "17 Jul, 09:26",
+      "text": "туц туц",
+      "completed": false,
+      "id": 9
+    },
+    {
+      "date": "17 Jul, 09:26",
+      "text": "туц туц туц",
+      "completed": true,
+      "id": 10
     }
   ]
 }

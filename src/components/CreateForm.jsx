@@ -1,59 +1,48 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import moment from 'moment';
 
-// TODO: move to fcomponent
-class CreateForm extends React.Component {
+const CreateForm = (props) => {
+    const { handleCreate } = props;
+    const [inputValue, setInputValue] = useState('');
 
-    state = {
-        inputNewTask: ""
-    }
-
-    onChangeInputNewTask = (event) => {
-        this.setState({ inputNewTask: event.target.value })
-    }
-
-    submitHandler = (event) => {
-        event.preventDefault()
-        this.createTask()
-    }
-
-    createTask = (text) => {
-        this.setState({ inputNewTask: "" })
-        this.props.handleCreate({
-            date: moment().format('D MMM, HH:mm'),
-            text: this.state.inputNewTask,
-            completed: false,
-        });
+    const classNames = {
+        container: 'form-group task-form d-flex justify-content-between',
+        input: 'form-control task-form-input px-4 border-0 border-bottom',
+        button: 'create-task-btn mr-3 d-flex align-items-center justify-content-center',
+        icon: 'material-icons align-middle',
     };
 
-    render() {
-        const classNames = {
-            container: 'form-group task-form d-flex justify-content-between',
-            input: 'form-control task-form-input px-4 border-0 border-bottom',
-            button: 'create-task-btn mr-3 d-flex align-items-center justify-content-center',
-            icon: 'material-icons align-middle',
-        }
+    const createTask = (e) => {
+        e.preventDefault();
+        e.target.reset();
 
-        return(
-            <Fragment>
-                <form className={classNames.container} onSubmit={this.submitHandler}>
-                    <input
-                        className={classNames.input}
-                        type="text"
-                        placeholder="Add new task here..."
-                        value={this.state.inputNewTask}
-                        onChange={(event) => this.onChangeInputNewTask(event)}
-                    />
-                    <button type="submit" className={classNames.button}>
-                        <i className={classNames.icon}>
-                            add
-                        </i>
-                    </button>
-                </form>
-                <hr className="my-4 w-50" />
-            </Fragment>
-        )
-    }
-}
+        if (inputValue) {
+            handleCreate({
+                date: moment().format('D MMM, HH:mm'),
+                text: inputValue,
+                completed: false,
+            });
+
+            setInputValue('');
+        }
+    };
+
+    return (
+        <Fragment>
+            <form className={classNames.container} onSubmit={createTask}>
+                <input
+                    className={classNames.input}
+                    type="text"
+                    placeholder="Add new task here..."
+                    onChange={(e) => setInputValue(e.target.value)}
+                />
+                <button type="submit" className={classNames.button}>
+                    <i className={classNames.icon}>add</i>
+                </button>
+            </form>
+            <hr className="my-4 w-50" />
+        </Fragment>
+    );
+};
 
 export default CreateForm;
