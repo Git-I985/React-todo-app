@@ -3,10 +3,28 @@ import moment from 'moment';
 
 // TODO: move to fcomponent
 class CreateForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.input = React.createRef(); //TODO: remove this shit
+
+    state = {
+        inputNewTask: ""
     }
+
+    onChangeInputNewTask = (event) => {
+        this.setState({ inputNewTask: event.target.value })
+    }
+
+    submitHandler = (event) => {
+        event.preventDefault()
+        this.createTask()
+    }
+
+    createTask = (text) => {
+        this.setState({ inputNewTask: "" })
+        this.props.handleCreate({
+            date: moment().format('D MMM, HH:mm'),
+            text: this.state.inputNewTask,
+            completed: false,
+        });
+    };
 
     render() {
         const classNames = {
@@ -14,52 +32,28 @@ class CreateForm extends React.Component {
             input: 'form-control task-form-input px-4 border-0 border-bottom',
             button: 'create-task-btn mr-3 d-flex align-items-center justify-content-center',
             icon: 'material-icons align-middle',
-        };
+        }
 
-        return (
+        return(
             <Fragment>
-                <div className={classNames.container}>
+                <form className={classNames.container} onSubmit={this.submitHandler}>
                     <input
                         className={classNames.input}
                         type="text"
                         placeholder="Add new task here..."
-                        onKeyDown={this.handlePressEnter}
-                        ref={this.input}
+                        value={this.state.inputNewTask}
+                        onChange={(event) => this.onChangeInputNewTask(event)}
                     />
-                    <div className={classNames.button}>
-                        <i className={classNames.icon} onClick={this.handleClickButton}>
+                    <button type="submit" className={classNames.button}>
+                        <i className={classNames.icon}>
                             add
                         </i>
-                    </div>
-                </div>
+                    </button>
+                </form>
                 <hr className="my-4 w-50" />
             </Fragment>
-        );
+        )
     }
-
-    handleCreateTask = (text) => {
-        this.props.handleCreate({
-            date: moment().format('D MMM, HH:mm'),
-            text: text,
-            completed: false,
-        });
-    };
-
-    handlePressEnter = (e) => {
-        let text = e.target.value;
-        if (e.key === 'Enter' && text) {
-            this.handleCreateTask(text);
-            e.target.value = '';
-        }
-    };
-
-    handleClickButton = () => {
-        let text = this.input.current.value;
-        if (text) {
-            this.handleCreateTask(text); //Create new task
-            this.textInput.current.value = ''; //Clear input
-        }
-    };
 }
 
 export default CreateForm;

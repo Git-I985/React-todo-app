@@ -74,3 +74,10 @@ body {
 .text-strikethrough {
     text-decoration: line-through;
 }
+
+form {
+    button {
+        border: none;
+        background: transparent;
+    }
+}
