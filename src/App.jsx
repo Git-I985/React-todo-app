@@ -11,12 +11,17 @@ const App = (props) => {
     const { data: tasks = [], create, remove, update } = props;
     const [order, setOrder] = useState(true);
     const [filter, setFilter] = useState(0);
+    const [newItem, setNewItem] = useState(false);
 
     const filters = [(task) => true, (task) => task.completed, (task) => !task.completed];
 
     return (
         <div className="container pt-5">
-            <CreateForm handleCreate={create} />
+            <CreateForm
+                handleCreate={create}
+                setNewItem={setNewItem}
+                resetFilter={() => setFilter(0)}
+            />
             <Toolbar
                 orderToggle={{
                     order,
@@ -33,6 +38,7 @@ const App = (props) => {
                 handleComplete={update}
                 order={order}
                 filter={filters[filter]}
+                newItem={newItem}
             />
         </div>
     );

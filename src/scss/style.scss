@@ -6,6 +6,19 @@
     display: none;
 }
 
+.last-task {
+    animation: scale 0.5s ease;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0.7);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 body {
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -16,6 +29,7 @@ body {
 }
 
 .tasks-list {
+    transition: all 3s ease;
 }
 
 .task-item {

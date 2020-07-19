@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import moment from 'moment';
 
 const CreateForm = (props) => {
-    const { handleCreate } = props;
+    const { handleCreate, setNewItem, resetFilter } = props;
     const [inputValue, setInputValue] = useState('');
 
     const classNames = {
@@ -17,12 +17,15 @@ const CreateForm = (props) => {
         e.target.reset();
 
         if (inputValue) {
-            handleCreate({
+            let task = {
                 date: moment().format('D MMM, HH:mm'),
                 text: inputValue,
                 completed: false,
-            });
+            };
 
+            handleCreate(task);
+            setNewItem(true);
+            resetFilter();
             setInputValue('');
         }
     };

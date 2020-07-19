@@ -3,11 +3,11 @@ import CompleteCheckbox from './CompleteCheckbox.jsx';
 import moment from 'moment';
 
 const Task = (props) => {
-    const { task, handleDelete, handleComplete } = props;
+    const { task, handleDelete, handleComplete, isRecent } = props;
     const relativeDate = moment(task.date, 'D MMM, HH:mm', true).fromNow();
 
     const classNames = {
-        li: 'task-item px-3 pt-2 mb-3',
+        li: `task-item px-3 pt-2 mb-3 ${isRecent ? 'last-task' : ''}`,
         container: 'd-flex justify-content-between',
         text: task.completed ? 'task-text text-muted text-strikethrough mt-1 ' : 'task-text mt-1 ',
         date: 'text-muted task-date',
@@ -31,7 +31,11 @@ const Task = (props) => {
                         }}
                         completed={task.completed}
                     />
-                    <i className={classNames.delete} onClick={() => handleDelete(task.id)}>
+                    <i
+                        className={classNames.delete}
+                        onClick={() => {
+                            handleDelete(task.id);
+                        }}>
                         close
                     </i>
                 </div>
