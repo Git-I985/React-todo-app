@@ -6,23 +6,6 @@
     display: none;
 }
 
-.test-enter {
-    opacity: 0;
-}
-
-.test-enter-active {
-    opacity: 1;
-}
-
-@keyframes scale {
-    0% {
-        transform: scale(0.7);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
 body {
     overflow-wrap: break-word;
     word-wrap: break-word;
