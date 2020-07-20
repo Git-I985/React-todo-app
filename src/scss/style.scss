@@ -6,8 +6,12 @@
     display: none;
 }
 
-.last-task {
-    animation: scale 0.5s ease;
+.test-enter {
+    opacity: 0;
+}
+
+.test-enter-active {
+    opacity: 1;
 }
 
 @keyframes scale {

@@ -1,41 +1,33 @@
 import React from 'react';
-import CompleteCheckbox from './CompleteCheckbox.jsx';
 import moment from 'moment';
+// Components
+import CompleteCheckbox from './CompleteCheckbox.jsx';
+
+import classNames from './classNames';
 
 const Task = (props) => {
-    const { task, handleDelete, handleComplete, isRecent } = props;
+    const { task, handleDelete, handleComplete } = props;
     const relativeDate = moment(task.date, 'D MMM, HH:mm', true).fromNow();
 
-    const classNames = {
-        li: `task-item px-3 pt-2 mb-3 ${isRecent ? 'last-task' : ''}`,
-        container: 'd-flex justify-content-between',
-        text: task.completed ? 'task-text text-muted text-strikethrough mt-1 ' : 'task-text mt-1 ',
-        date: 'text-muted task-date',
-        controls: 'task-controls d-flex align-items-center ml-4',
-        delete: 'material-icons ml-2 delete-task-btn',
-    };
+    const completeHandler = (task) =>
+        handleComplete(task.id, { ...task, completed: !task.completed });
 
     return (
         <li className={classNames.li}>
             <div className={classNames.container}>
-                <div>
-                    <small className={classNames.date}>{relativeDate}</small>
-                    <p className={classNames.text}>{task.text}</p>
+                <div className={classNames.task.info}>
+                    <small className={classNames.task.date}>{relativeDate}</small>
+                    <p className={task.completed ? classNames.task.complete : classNames.task.text}>
+                        {task.text}
+                    </p>
                 </div>
-                <div className={classNames.controls}>
+                {/* Controls */}
+                <div className={classNames.task.controls}>
                     <CompleteCheckbox
-                        handleComplete={() => {
-                            let updated = task;
-                            updated.completed = !updated.completed;
-                            handleComplete(updated.id, updated);
-                        }}
                         completed={task.completed}
+                        handleComplete={() => completeHandler(task)}
                     />
-                    <i
-                        className={classNames.delete}
-                        onClick={() => {
-                            handleDelete(task.id);
-                        }}>
+                    <i className={classNames.task.delete} onClick={() => handleDelete(task.id)}>
                         close
                     </i>
                 </div>

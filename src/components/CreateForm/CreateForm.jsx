@@ -1,16 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import moment from 'moment';
+import classNames from './classNames';
 
 const CreateForm = (props) => {
-    const { handleCreate, setNewItem, resetFilter } = props;
+    const { handleCreate, resetFilter } = props;
     const [inputValue, setInputValue] = useState('');
-
-    const classNames = {
-        container: 'form-group task-form d-flex justify-content-between',
-        input: 'form-control task-form-input px-4 border-0 border-bottom',
-        button: 'create-task-btn mr-3 d-flex align-items-center justify-content-center',
-        icon: 'material-icons align-middle',
-    };
 
     const createTask = (e) => {
         e.preventDefault();
@@ -24,7 +18,6 @@ const CreateForm = (props) => {
             };
 
             handleCreate(task);
-            setNewItem(true);
             resetFilter();
             setInputValue('');
         }
